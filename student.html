@@ -4,67 +4,75 @@
     <title>Student Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body class="bg-gray-50 flex min-h-screen font-sans">
+<body class="flex min-h-screen font-sans bg-fixed bg-cover" style="background-image:url('https://images.unsplash.com/photo-1497032628192-86f99bcd76bc');">
 
-<div class="w-72 bg-slate-900 text-gray-300 p-6 flex flex-col">
-    <h2 class="text-2xl font-bold text-white mb-10 flex items-center gap-2">
-        <span class="bg-indigo-600 p-2 rounded-lg text-sm">PE</span> ProductiveEdge
+<div class="w-72 min-h-screen p-6 text-white bg-slate-950/90 backdrop-blur-xl flex flex-col fixed shadow-2xl border-r border-white/10">
+    <h2 class="text-2xl font-black mb-10 flex items-center gap-3 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+        <span class="bg-indigo-600 text-white p-2 rounded-lg text-sm">PE</span> ProductiveEdge
     </h2>
-    <nav class="space-y-2 flex-1">
-        <button onclick="show('ach')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">🏆 Achievements</button>
-        <button onclick="show('goals')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">🎯 Goals</button>
-        <button onclick="show('tasks')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">✅ Tasks</button>
-        <button onclick="show('pomo')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">⏱️ Pomodoro</button>
-        <button onclick="show('prog')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">📊 Progress</button>
+    <nav class="space-y-3 flex-1">
+        <button onclick="show('ach')" class="w-full text-left p-4 rounded-xl hover:bg-white/10 transition-colors flex items-center gap-3 font-medium">🏆 Achievements</button>
+        <button onclick="show('goals')" class="w-full text-left p-4 rounded-xl hover:bg-white/10 transition-colors flex items-center gap-3 font-medium">🎯 Goals</button>
+        <button onclick="show('tasks')" class="w-full text-left p-4 rounded-xl hover:bg-white/10 transition-colors flex items-center gap-3 font-medium">✅ Tasks</button>
+        <button onclick="show('pomo')" class="w-full text-left p-4 rounded-xl hover:bg-white/10 transition-colors flex items-center gap-3 font-medium">⏱️ Pomodoro</button>
+        <button onclick="show('prog')" class="w-full text-left p-4 rounded-xl hover:bg-white/10 transition-colors flex items-center gap-3 font-medium">📊 Analytics</button>
     </nav>
-    <a href="index.html" class="mt-auto p-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-colors">🚪 Logout</a>
+    <a href="index.html" class="p-4 text-red-400 hover:bg-red-500/20 rounded-xl transition-colors font-bold text-center border border-red-500/20 mt-auto">🚪 Logout</a>
 </div>
 
-<div class="flex-1 p-10">
+<div class="flex-1 ml-72 p-12 bg-black/40 backdrop-blur-sm min-h-screen">
+    
     <div id="ach" class="content-sec animate__animated animate__fadeIn">
-        <h1 class="text-3xl font-bold text-slate-800 mb-6">Your Achievements</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <p class="text-indigo-600 font-bold">SPORTS</p>
-                <h3 class="text-xl font-semibold">Basketball Tournament Winner</h3>
-                <p class="text-gray-500">Dec 2025 • Inter-college</p>
+        <h1 class="text-4xl font-black text-white mb-8 drop-shadow-lg">Achievements</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white/95 backdrop-blur-md p-8 rounded-[2rem] shadow-xl border border-white/20 hover:scale-[1.02] transition-transform">
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-black tracking-widest mb-4 inline-block">SPORTS</span>
+                <h3 class="text-2xl font-black text-slate-800">Basketball Winner</h3>
+                <p class="text-gray-500 mt-2 font-medium">Dec 2025 • Inter-college Championship Trophy</p>
             </div>
         </div>
     </div>
 
     <div id="goals" class="content-sec hidden animate__animated animate__fadeIn">
-        <h1 class="text-3xl font-bold text-slate-800 mb-6">Academic Goals</h1>
-        <div class="flex gap-2 mb-6">
-            <input id="goalInput" class="flex-1 border border-gray-200 p-3 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Enter a new goal...">
-            <button onclick="addItem('goal')" class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold">Add Goal</button>
+        <h1 class="text-4xl font-black text-white mb-8 drop-shadow-lg">Academic Goals</h1>
+        <div class="bg-white/95 backdrop-blur-md p-8 rounded-[2rem] shadow-xl">
+            <div class="flex gap-4 mb-8">
+                <input id="goalInput" class="flex-1 bg-gray-50 border border-gray-200 p-4 rounded-2xl outline-none focus:ring-2 ring-indigo-500 text-gray-800 font-medium" placeholder="Set a new milestone...">
+                <button onclick="addItem('goal')" class="bg-indigo-600 text-white px-10 rounded-2xl font-bold shadow-lg hover:bg-indigo-500 transition-colors">Add</button>
+            </div>
+            <ul id="goalList" class="space-y-4"></ul>
         </div>
-        <ul id="goalList" class="space-y-3"></ul>
     </div>
 
     <div id="tasks" class="content-sec hidden animate__animated animate__fadeIn">
-        <h1 class="text-3xl font-bold text-slate-800 mb-6">Daily Tasks</h1>
-        <div class="flex gap-2 mb-6">
-            <input id="taskInput" class="flex-1 border border-gray-200 p-3 rounded-xl focus:ring-2 focus:ring-green-500 outline-none" placeholder="What needs to be done?">
-            <button onclick="addItem('task')" class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold">Add Task</button>
+        <h1 class="text-4xl font-black text-white mb-8 drop-shadow-lg">Daily Tasks</h1>
+        <div class="bg-white/95 backdrop-blur-md p-8 rounded-[2rem] shadow-xl">
+            <div class="flex gap-4 mb-8">
+                <input id="taskInput" class="flex-1 bg-gray-50 border border-gray-200 p-4 rounded-2xl outline-none focus:ring-2 ring-emerald-500 text-gray-800 font-medium" placeholder="What needs to be done today?">
+                <button onclick="addItem('task')" class="bg-emerald-500 text-white px-10 rounded-2xl font-bold shadow-lg hover:bg-emerald-400 transition-colors">Add</button>
+            </div>
+            <ul id="taskList" class="space-y-4"></ul>
         </div>
-        <ul id="taskList" class="space-y-3"></ul>
     </div>
 
-    <div id="pomo" class="content-sec hidden animate__animated animate__fadeIn">
-        <div class="max-w-md mx-auto bg-white p-10 rounded-3xl shadow-xl text-center">
-            <h1 class="text-2xl font-bold text-slate-800 mb-8">Focus Timer</h1>
-            <div id="timerDisplay" class="text-7xl font-black text-indigo-600 mb-8 font-mono">25:00</div>
+    <div id="pomo" class="content-sec hidden animate__animated animate__zoomIn">
+        <div class="max-w-lg mx-auto bg-white/95 backdrop-blur-md p-12 rounded-[3rem] shadow-2xl text-center border border-white/50 mt-10">
+            <div id="tomatoIcon" class="text-8xl mb-6 transition-all duration-500 drop-shadow-xl">🍅</div>
+            <h1 class="text-3xl font-black text-slate-800 mb-2">Deep Focus Timer</h1>
+            <p class="text-gray-500 font-medium mb-8">Stay productive. Eliminate distractions.</p>
+            <div id="timerDisplay" class="text-8xl font-black text-indigo-600 mb-10 font-mono tracking-tighter drop-shadow-sm">25:00</div>
             <div class="flex gap-4 justify-center">
-                <button onclick="startPomo()" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold shadow-lg">Start</button>
-                <button onclick="resetPomo()" class="bg-gray-200 text-gray-700 px-8 py-3 rounded-full font-bold">Reset</button>
+                <button onclick="startPomo()" class="bg-indigo-600 text-white px-12 py-5 rounded-2xl font-black text-lg shadow-xl hover:bg-indigo-500 active:scale-95 transition-all">START</button>
+                <button onclick="resetPomo()" class="bg-slate-200 text-slate-700 px-12 py-5 rounded-2xl font-black text-lg hover:bg-slate-300 transition-colors">RESET</button>
             </div>
         </div>
     </div>
 
     <div id="prog" class="content-sec hidden animate__animated animate__fadeIn">
-        <h1 class="text-3xl font-bold text-slate-800 mb-6">Performance Analytics</h1>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+        <h1 class="text-4xl font-black text-white mb-8 drop-shadow-lg">Performance Analytics</h1>
+        <div class="bg-white/95 backdrop-blur-md p-8 rounded-[2rem] shadow-xl">
             <canvas id="myChart" height="100"></canvas>
         </div>
     </div>
@@ -76,31 +84,30 @@
         document.getElementById(id).classList.remove('hidden');
     }
 
-    // List Logic
     function addItem(type) {
         const input = document.getElementById(`${type}Input`);
         const list = document.getElementById(`${type}List`);
         if (!input.value) return;
-
         const li = document.createElement('li');
-        li.className = "bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center";
-        li.innerHTML = `<span>${input.value}</span><button onclick="this.parentElement.remove()" class="text-red-400 hover:text-red-600">Delete</button>`;
+        li.className = "bg-white p-5 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center animate__animated animate__slideInLeft";
+        li.innerHTML = `<span class="font-bold text-gray-700">${input.value}</span><button onclick="this.parentElement.remove()" class="text-red-500 bg-red-50 hover:bg-red-100 p-2 rounded-lg transition-colors">✕</button>`;
         list.appendChild(li);
         input.value = "";
     }
 
-    // Pomodoro Logic
     let timeLeft = 1500;
     let timerId = null;
 
     function startPomo() {
         if (timerId) return;
+        document.getElementById('tomatoIcon').classList.add('animate__animated', 'animate__bounce', 'animate__infinite');
         timerId = setInterval(() => {
             timeLeft--;
             updateTimerDisplay();
             if (timeLeft <= 0) {
                 clearInterval(timerId);
-                alert("Time for a break!");
+                document.getElementById('tomatoIcon').classList.remove('animate__animated', 'animate__bounce', 'animate__infinite');
+                alert("Session complete! Time for a break.");
             }
         }, 1000);
     }
@@ -109,6 +116,7 @@
         clearInterval(timerId);
         timerId = null;
         timeLeft = 1500;
+        document.getElementById('tomatoIcon').classList.remove('animate__animated', 'animate__bounce', 'animate__infinite');
         updateTimerDisplay();
     }
 
@@ -118,22 +126,20 @@
         document.getElementById('timerDisplay').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
-    // Chart Logic
-    const ctx = document.getElementById('myChart');
-    new Chart(ctx, {
+    new Chart(document.getElementById('myChart'), {
         type: 'bar',
         data: {
-            labels: ['Tasks Completed', 'Goals Met', 'Pomodoro Sessions', 'Assignments'],
+            labels: ['Tasks Completed', 'Goals Met', 'Pomodoro Sessions', 'Projects Finished'],
             datasets: [{
-                label: 'Weekly Progress',
-                data: [12, 5, 8, 3],
-                backgroundColor: ['#6366f1', '#10b981', '#f43f5e', '#f59e0b'],
-                borderRadius: 10
+                label: 'Weekly Metrics',
+                data: [15, 6, 12, 4],
+                backgroundColor: ['#4f46e5', '#10b981', '#f43f5e', '#f59e0b'],
+                borderRadius: 8
             }]
         },
         options: {
-            responsive: true,
-            plugins: { legend: { display: false } }
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
         }
     });
 </script>
