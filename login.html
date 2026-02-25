@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head><title>Login</title><script src='https://cdn.tailwindcss.com'></script></head>
-<body class='min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 to-purple-800'>
-<div class='bg-white p-8 rounded-xl w-[350px]'>
-<h2 class='text-3xl font-bold mb-6 text-center'>Login</h2>
-<a href='student.html'><button class='w-full bg-blue-600 text-white py-3 rounded mb-3'>Student Login</button></a>
-<a href='admin.html'><button class='w-full bg-red-600 text-white py-3 rounded'>Admin Login</button></a>
-</div>
+<html lang="en">
+<head>
+    <title>Secure Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-slate-950 text-white">
+    <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 w-[380px] shadow-2xl">
+        <h2 id="loginTitle" class="text-2xl font-bold mb-6 text-center text-indigo-400">Login</h2>
+        <div class="space-y-4">
+            <input id="user" class="w-full bg-slate-800 border border-slate-700 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Username">
+            <input id="pass" type="password" class="w-full bg-slate-800 border border-slate-700 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Password">
+            <button onclick="login()" class="w-full bg-indigo-600 hover:bg-indigo-500 py-3 rounded-lg font-bold transition-all mt-2">
+                Sign In
+            </button>
+        </div>
+        <p id="msg" class="text-red-400 text-center mt-4 text-sm font-medium"></p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const role = params.get("role");
+        document.getElementById('loginTitle').innerText = role ? `Login as ${role.charAt(0).toUpperCase() + role.slice(1)}` : "Login";
+
+        function login(){
+            const u = document.getElementById('user').value;
+            const p = document.getElementById('pass').value;
+
+            if(role === "student" && u === "student" && p === "1234") {
+                localStorage.setItem("role", "student");
+                window.location.href = "student.html";
+            } else if(role === "admin" && u === "admin" && p === "admin") {
+                localStorage.setItem("role", "admin");
+                window.location.href = "admin.html";
+            } else {
+                document.getElementById('msg').innerText = "Invalid credentials. Please try again.";
+            }
+        }
+    </script>
 </body>
 </html>

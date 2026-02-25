@@ -1,38 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Student Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <title>Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<body class="bg-gray-50 flex min-h-screen font-sans">
 
-<body class="bg-gray-100 p-8">
-
-<h1 class="text-4xl font-bold mb-6">My Dashboard</h1>
-
-<!-- QUICK ACTIONS -->
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-  <a href="goals.html" class="bg-indigo-600 text-white p-4 rounded-xl text-center font-bold">🎯 Goals</a>
-  <a href="tasks.html" class="bg-green-600 text-white p-4 rounded-xl text-center font-bold">✅ Tasks</a>
-  <a href="pomodoro.html" class="bg-red-600 text-white p-4 rounded-xl text-center font-bold">⏱️ Pomodoro</a>
-  <a href="progress.html" class="bg-purple-600 text-white p-4 rounded-xl text-center font-bold">📊 Progress</a>
+<div class="w-72 bg-slate-900 text-gray-300 p-6 flex flex-col">
+    <h2 class="text-2xl font-bold text-white mb-10 flex items-center gap-2">
+        <span class="bg-indigo-600 p-2 rounded-lg text-sm">PE</span> ProductiveEdge
+    </h2>
+    <nav class="space-y-2 flex-1">
+        <button onclick="show('ach')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">🏆 Achievements</button>
+        <button onclick="show('goals')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">🎯 Goals</button>
+        <button onclick="show('tasks')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">✅ Tasks</button>
+        <button onclick="show('pomo')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">⏱️ Pomodoro</button>
+        <button onclick="show('prog')" class="w-full text-left p-3 rounded-xl hover:bg-slate-800 transition-colors flex items-center gap-3">📊 Progress</button>
+    </nav>
+    <a href="index.html" class="mt-auto p-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-colors">🚪 Logout</a>
 </div>
 
-<h2 class="text-2xl font-bold mb-4">My Achievements</h2>
+<div class="flex-1 p-10">
+    <div id="ach" class="content-sec animate__animated animate__fadeIn">
+        <h1 class="text-3xl font-bold text-slate-800 mb-6">Your Achievements</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <p class="text-indigo-600 font-bold">SPORTS</p>
+                <h3 class="text-xl font-semibold">Basketball Tournament Winner</h3>
+                <p class="text-gray-500">Dec 2025 • Inter-college</p>
+            </div>
+        </div>
+    </div>
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-  <div class="bg-white p-6 rounded-xl shadow">
-    <h3 class="font-bold">🏀 Basketball</h3>
-    <p>Inter-College • Winner</p>
-  </div>
-  <div class="bg-white p-6 rounded-xl shadow">
-    <h3 class="font-bold">💻 Hackathon</h3>
-    <p>State Level • Participation</p>
-  </div>
+    <div id="goals" class="content-sec hidden animate__animated animate__fadeIn">
+        <h1 class="text-3xl font-bold text-slate-800 mb-6">Academic Goals</h1>
+        <div class="flex gap-2 mb-6">
+            <input id="goalInput" class="flex-1 border border-gray-200 p-3 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Enter a new goal...">
+            <button onclick="addItem('goal')" class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold">Add Goal</button>
+        </div>
+        <ul id="goalList" class="space-y-3"></ul>
+    </div>
+
+    <div id="tasks" class="content-sec hidden animate__animated animate__fadeIn">
+        <h1 class="text-3xl font-bold text-slate-800 mb-6">Daily Tasks</h1>
+        <div class="flex gap-2 mb-6">
+            <input id="taskInput" class="flex-1 border border-gray-200 p-3 rounded-xl focus:ring-2 focus:ring-green-500 outline-none" placeholder="What needs to be done?">
+            <button onclick="addItem('task')" class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold">Add Task</button>
+        </div>
+        <ul id="taskList" class="space-y-3"></ul>
+    </div>
+
+    <div id="pomo" class="content-sec hidden animate__animated animate__fadeIn">
+        <div class="max-w-md mx-auto bg-white p-10 rounded-3xl shadow-xl text-center">
+            <h1 class="text-2xl font-bold text-slate-800 mb-8">Focus Timer</h1>
+            <div id="timerDisplay" class="text-7xl font-black text-indigo-600 mb-8 font-mono">25:00</div>
+            <div class="flex gap-4 justify-center">
+                <button onclick="startPomo()" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold shadow-lg">Start</button>
+                <button onclick="resetPomo()" class="bg-gray-200 text-gray-700 px-8 py-3 rounded-full font-bold">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="prog" class="content-sec hidden animate__animated animate__fadeIn">
+        <h1 class="text-3xl font-bold text-slate-800 mb-6">Performance Analytics</h1>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <canvas id="myChart" height="100"></canvas>
+        </div>
+    </div>
 </div>
 
-<a href="index.html">
-  <button class="mt-8 px-6 py-3 bg-gray-800 text-white rounded-lg">Logout</button>
-</a>
+<script>
+    function show(id){
+        document.querySelectorAll('.content-sec').forEach(el => el.classList.add('hidden'));
+        document.getElementById(id).classList.remove('hidden');
+    }
 
+    // List Logic
+    function addItem(type) {
+        const input = document.getElementById(`${type}Input`);
+        const list = document.getElementById(`${type}List`);
+        if (!input.value) return;
+
+        const li = document.createElement('li');
+        li.className = "bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center";
+        li.innerHTML = `<span>${input.value}</span><button onclick="this.parentElement.remove()" class="text-red-400 hover:text-red-600">Delete</button>`;
+        list.appendChild(li);
+        input.value = "";
+    }
+
+    // Pomodoro Logic
+    let timeLeft = 1500;
+    let timerId = null;
+
+    function startPomo() {
+        if (timerId) return;
+        timerId = setInterval(() => {
+            timeLeft--;
+            updateTimerDisplay();
+            if (timeLeft <= 0) {
+                clearInterval(timerId);
+                alert("Time for a break!");
+            }
+        }, 1000);
+    }
+
+    function resetPomo() {
+        clearInterval(timerId);
+        timerId = null;
+        timeLeft = 1500;
+        updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        document.getElementById('timerDisplay').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Chart Logic
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Tasks Completed', 'Goals Met', 'Pomodoro Sessions', 'Assignments'],
+            datasets: [{
+                label: 'Weekly Progress',
+                data: [12, 5, 8, 3],
+                backgroundColor: ['#6366f1', '#10b981', '#f43f5e', '#f59e0b'],
+                borderRadius: 10
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } }
+        }
+    });
+</script>
 </body>
 </html>

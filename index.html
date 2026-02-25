@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset='UTF-8'>
-<title>Student Achievement Tracker</title>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<script src='https://cdn.tailwindcss.com'></script>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'/>
+    <meta charset="UTF-8">
+    <title>ProductiveEdge | Student Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body class='bg-gradient-to-br from-indigo-900 via-purple-900 to-black text-white'>
-<section class='min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 p-10'>
-<div class='max-w-xl animate__animated animate__fadeInLeft'>
-<h1 class='text-5xl font-extrabold mb-6'>Student Achievement Tracker</h1>
-<p class='text-gray-300 mb-8'>Achievements + Goals + Tasks + Pomodoro</p>
-<a href='login.html'><button class='px-8 py-4 bg-pink-600 rounded-xl font-bold'>Get Started ?</button></a>
-</div>
-<img src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1' class='w-[420px] rounded-2xl shadow-2xl animate__animated animate__zoomIn'>
-</section>
+<body class="bg-slate-950 text-white overflow-x-hidden">
+    <section class="min-h-screen flex flex-col lg:flex-row items-center justify-around p-8 lg:p-20">
+        <div class="animate__animated animate__fadeInLeft max-w-2xl text-center lg:text-left">
+            <h1 class="text-6xl font-black mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+                Student Productivity Tracker
+            </h1>
+            <p class="text-xl text-gray-400 mb-10 leading-relaxed">
+                Master your academic journey. Track achievements, set ambitious goals, manage daily tasks, and boost focus with integrated Pomodoro sessions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a href="login-choice.html" class="px-10 py-4 bg-indigo-600 hover:bg-indigo-500 transition-all rounded-full font-bold text-lg shadow-lg shadow-indigo-500/20">
+                    Get Started Free →
+                </a>
+            </div>
+        </div>
+        <div class="animate__animated animate__zoomIn mt-12 lg:mt-0">
+            <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&q=80&w=800" 
+                 alt="Productivity" class="w-[500px] rounded-3xl shadow-2xl border border-white/10">
+        </div>
+    </section>
 </body>
 </html>
