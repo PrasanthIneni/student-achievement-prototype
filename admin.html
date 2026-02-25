@@ -9,34 +9,19 @@
 
 <h1 class="text-4xl font-bold mb-8">Admin Dashboard</h1>
 
-<div class="grid grid-cols-3 gap-6 mb-10">
-  <div class="bg-blue-600 p-6 rounded-xl text-center">
-    <h2 class="text-xl">Total Students</h2>
-    <p class="text-4xl font-bold">120</p>
-  </div>
-  <div class="bg-green-600 p-6 rounded-xl text-center">
-    <h2 class="text-xl">Achievements</h2>
-    <p class="text-4xl font-bold">45</p>
-  </div>
-  <div class="bg-purple-600 p-6 rounded-xl text-center">
-    <h2 class="text-xl">Activities</h2>
-    <p class="text-4xl font-bold">18</p>
-  </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+  <div class="bg-blue-600 p-6 rounded-xl hover:scale-105 transition">Students<br><b class="text-3xl">120</b></div>
+  <div class="bg-green-600 p-6 rounded-xl hover:scale-105 transition">Achievements<br><b class="text-3xl">45</b></div>
+  <div class="bg-purple-600 p-6 rounded-xl hover:scale-105 transition">Activities<br><b class="text-3xl">18</b></div>
 </div>
 
-<div class="space-y-4 max-w-md">
-  <a href="add-achievement.html">
-    <button class="w-full bg-blue-500 py-3 rounded-lg font-bold">
-      ➕ Add Achievement
-    </button>
-  </a>
+<a href="add.html">
+  <button class="px-6 py-3 bg-pink-600 rounded-lg font-bold">➕ Add Achievement</button>
+</a>
 
-  <a href="index.html">
-    <button class="w-full bg-red-500 py-3 rounded-lg font-bold">
-      🚪 Logout
-    </button>
-  </a>
-</div>
+<a href="index.html">
+  <button class="ml-4 px-6 py-3 bg-red-600 rounded-lg font-bold">Logout</button>
+</a>
 
 </body>
 </html>
