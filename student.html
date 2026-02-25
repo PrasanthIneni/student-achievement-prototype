@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head><title>Student</title><script src='https://cdn.tailwindcss.com'></script></head>
-<body class='bg-gray-100 p-8'>
-<h1 class='text-4xl font-bold mb-6'>My Dashboard</h1>
-<div class='grid grid-cols-2 md:grid-cols-4 gap-4 mb-8'>
-<a href='goals.html' class='bg-indigo-600 text-white p-4 rounded text-center'>?? Goals</a>
-<a href='tasks.html' class='bg-green-600 text-white p-4 rounded text-center'>? Tasks</a>
-<a href='pomodoro.html' class='bg-red-600 text-white p-4 rounded text-center'>?? Pomodoro</a>
-<a href='progress.html' class='bg-purple-600 text-white p-4 rounded text-center'>?? Progress</a>
+<head>
+  <title>Student Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-8">
+
+<h1 class="text-4xl font-bold mb-6">My Dashboard</h1>
+
+<!-- QUICK ACTIONS -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+  <a href="goals.html" class="bg-indigo-600 text-white p-4 rounded-xl text-center font-bold">🎯 Goals</a>
+  <a href="tasks.html" class="bg-green-600 text-white p-4 rounded-xl text-center font-bold">✅ Tasks</a>
+  <a href="pomodoro.html" class="bg-red-600 text-white p-4 rounded-xl text-center font-bold">⏱️ Pomodoro</a>
+  <a href="progress.html" class="bg-purple-600 text-white p-4 rounded-xl text-center font-bold">📊 Progress</a>
 </div>
-<a href='index.html'><button class='bg-gray-800 text-white px-6 py-3 rounded'>Logout</button></a>
+
+<h2 class="text-2xl font-bold mb-4">My Achievements</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="bg-white p-6 rounded-xl shadow">
+    <h3 class="font-bold">🏀 Basketball</h3>
+    <p>Inter-College • Winner</p>
+  </div>
+  <div class="bg-white p-6 rounded-xl shadow">
+    <h3 class="font-bold">💻 Hackathon</h3>
+    <p>State Level • Participation</p>
+  </div>
+</div>
+
+<a href="index.html">
+  <button class="mt-8 px-6 py-3 bg-gray-800 text-white rounded-lg">Logout</button>
+</a>
+
 </body>
 </html>

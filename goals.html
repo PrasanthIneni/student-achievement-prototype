@@ -1,4 +1,32 @@
 <!DOCTYPE html>
-<html><head><title>Goals</title><script src='https://cdn.tailwindcss.com'></script></head>
-<body class='bg-indigo-100 p-8'><h1 class='text-3xl font-bold'>Goals</h1><a href='student.html'>Back</a></body>
+<html>
+<head>
+  <title>Goals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-indigo-100 p-8">
+<h1 class="text-3xl font-bold mb-6">🎯 My Goals</h1>
+
+<input id="goalInput" class="border p-3 rounded w-full mb-4" placeholder="Enter a goal">
+<button onclick="addGoal()" class="bg-indigo-600 text-white px-6 py-2 rounded">Add Goal</button>
+
+<ul id="goalList" class="mt-6 space-y-2"></ul>
+
+<a href="student.html" class="block mt-6 text-blue-700">← Back</a>
+
+<script>
+const list = document.getElementById("goalList");
+
+function addGoal() {
+  const input = document.getElementById("goalInput");
+  if (!input.value) return;
+  const li = document.createElement("li");
+  li.className = "bg-white p-3 rounded shadow";
+  li.innerText = input.value;
+  list.appendChild(li);
+  input.value = "";
+}
+</script>
+</body>
 </html>
