@@ -65,3 +65,33 @@ The frontend provides the premium, animated user interface.
 *   **Student**: `student1` / `password`
 
 *For any issues, please ensure ports 8081 and 5173 are not being used by other applications.*
+
+---
+
+## 🌐 Deploy to Render and Vercel
+This project is now ready for deployment with:
+- **Backend**: Render
+- **Frontend**: Vercel
+
+### Render backend setup
+1. Push this repo to GitHub.
+2. Create a new Render Web Service and connect it to `main`.
+3. Use:
+   - Build command: `cd backend && mvn clean package`
+   - Start command: `java -jar backend/target/student-activity-0.0.1-SNAPSHOT.jar`
+4. Add a managed Render MySQL database called `studentachievementcentre-db`.
+5. Render will automatically inject the database connection string into `DATABASE_URL`.
+6. Confirm the app is set to use the `PORT` environment variable.
+
+### Vercel frontend setup
+1. Create a new Vercel project and point it at the `frontend` folder.
+2. Use:
+   - Install command: `npm install`
+   - Build command: `npm run build`
+   - Output directory: `dist`
+3. Add environment variable:
+   - `VITE_API_URL` = `https://<your-render-backend-url>/api`
+
+### Notes
+- The backend is deployment-ready using `render.yaml`.
+- The frontend uses `import.meta.env.VITE_API_URL` for the live API URL.
