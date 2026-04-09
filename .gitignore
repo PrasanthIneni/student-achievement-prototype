@@ -1,0 +1,25 @@
+# Maven
+/backend/target/
+/backend/.mvn/
+/backend/mvnw
+/backend/mvnw.cmd
+/backend/*.log
+
+# Build output
+/frontend/node_modules/
+/frontend/dist/
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# H2 database files
+/backend/studentdb.mv.db
+
+# Logs
+*.log
