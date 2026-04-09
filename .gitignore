@@ -18,6 +18,9 @@
 .DS_Store
 Thumbs.db
 
+# Environment files
+.env
+
 # H2 database files
 /backend/studentdb.mv.db
 
