@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cover bg-center min-h-screen font-sans text-white" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c');">
+    <div class="bg-slate-900/85 min-h-screen p-12 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto">
+            <header class="flex justify-between items-center mb-12">
+                <div>
+                    <h1 class="text-5xl font-black text-white">Admin Control Center</h1>
+                    <p class="text-indigo-400 mt-2 font-bold tracking-widest uppercase text-sm">System Management & User Records</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="add-achievement.html" class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-indigo-500 transition-all">Add Record</a>
+                    <a href="index.html" class="bg-red-500/20 text-red-400 border border-red-500/50 px-8 py-4 rounded-xl font-bold hover:bg-red-500/40 transition-all">Logout</a>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl">
+                    <h3 class="text-gray-300 text-sm font-black uppercase tracking-widest">Total Students</h3>
+                    <p class="text-5xl font-black text-white mt-3">1,284</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl">
+                    <h3 class="text-gray-300 text-sm font-black uppercase tracking-widest">Active Sessions</h3>
+                    <p class="text-5xl font-black text-white mt-3">42</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl">
+                    <h3 class="text-gray-300 text-sm font-black uppercase tracking-widest">System Status</h3>
+                    <p class="text-5xl font-black text-emerald-400 mt-3">Online</p>
+                </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md rounded-[2rem] border border-white/20 overflow-hidden shadow-2xl">
+                <table class="w-full text-left">
+                    <thead class="bg-black/40 text-gray-300 text-xs uppercase font-black tracking-widest">
+                        <tr>
+                            <th class="p-6">Student ID</th>
+                            <th class="p-6">Name</th>
+                            <th class="p-6">Status</th>
+                            <th class="p-6">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-6 font-mono text-indigo-300 font-bold">#STU-992</td>
+                            <td class="p-6 font-bold text-lg">Alex Johnson</td>
+                            <td class="p-6"><span class="bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-xs font-black border border-emerald-500/30">Active</span></td>
+                            <td class="p-6"><button class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-white font-bold transition-colors text-sm">Manage</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
